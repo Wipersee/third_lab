@@ -18,7 +18,6 @@ class CustomUserAdmin(UserAdmin):
                     "work_category",
                     "city",
                     "skills",
-                    "vacancy_request",
                     "salary_expectation",
                     "work_experience_range",
                     "work_experience_text",

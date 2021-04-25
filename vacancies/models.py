@@ -6,7 +6,6 @@ class Vacancy(models.Model):
     verbose_name_plural = "Vacancies"
     title = models.CharField(max_length=126, unique=True)
     text = models.TextField()
-    required_skills = models.ManyToManyField(Skills)
     views = models.PositiveIntegerField(default=0)
     publish_date = models.DateField(auto_now_add=True)
     recruiter = models.ForeignKey(
@@ -15,8 +14,14 @@ class Vacancy(models.Model):
         related_name="published_by",
         null=True,
     )
-    respond = models.ManyToManyField("accounts.User", related_name="responded_by")
+    respond = models.ManyToManyField(
+        "accounts.User", related_name="responded_by", blank=True
+    )
     salary = models.PositiveIntegerField()
+    required_skills = models.ManyToManyField(
+        Skills,
+        related_name="vacancy_required_skills",
+    )
 
     def __str__(self):
         return self.title

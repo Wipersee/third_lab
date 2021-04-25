@@ -22,4 +22,5 @@ urlpatterns = [
     path(
         "api/v1/dj-rest-auth/registration/", include("dj_rest_auth.registration.urls")
     ),
+    path("vacancies/", include("vacancies.urls")),
 ]

@@ -2,6 +2,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 import uuid
 from info.models import WorkCategory, Cities, Skills
+
 from vacancies.models import Vacancy
 from django.core.validators import MaxValueValidator, MinValueValidator, RegexValidator
 
@@ -37,7 +38,6 @@ class User(AbstractUser):
         Cities, on_delete=models.SET_NULL, null=True, blank=True
     )  # SAME THING HERE AS WITH WORKCATEGORY
     skills = models.ManyToManyField(Skills, blank=True)
-    vacancy_request = models.ManyToManyField(Vacancy, blank=True, null=True)
     salary_expectation = models.PositiveIntegerField(default=0)
     work_experience_range = models.PositiveIntegerField(
         default=0, validators=[MaxValueValidator(40), MinValueValidator(0)]
