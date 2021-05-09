@@ -13,11 +13,20 @@ import {
 import { UploadOutlined } from "@ant-design/icons";
 import { axiosInstance } from "./../../../tools/axiosInstance";
 import {url} from './../../../tools/params'
+
+function getCookie(name:any) {
+  let matches = document.cookie.match(new RegExp(
+    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+  ));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
 const props = {
   name: "file",
   action: `${url}accounts/upload_avatar/`,
   headers: {
     authorization: "Token " + localStorage.getItem("token"),
+    "X-CSRFToken": getCookie("csrftoken") || '',
   },
   onChange(info: any) {
     if (info.file.status !== "uploading") {

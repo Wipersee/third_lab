@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-1f9xb8+lka4x5e&355$uc&u-q1&#!@pi=qs(l2zh=4i6*^+2x*"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['core-it.herokuapp.com', 'localhost:8000', '0.0.0.0:5000']
+ALLOWED_HOSTS = ['core-it.herokuapp.com', 'localhost', '0.0.0.0:5000', '127.0.0.1']
 
 
 # Application definition
@@ -64,6 +64,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware"
 ]
 
 ROOT_URLCONF = "djinnif.urls"

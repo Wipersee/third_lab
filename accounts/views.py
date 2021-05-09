@@ -5,7 +5,7 @@ from .models import User
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from info.models import Skills
-
+from django.views.decorators.csrf import csrf_exempt
 
 class UserView(generics.RetrieveAPIView):
     serializer_class = UserSerializer
@@ -21,6 +21,7 @@ class UserView(generics.RetrieveAPIView):
 
 
 class UploadAvatar(APIView):
+    @csrf_exempt
     def post(self, request):
         user = User.objects.get(username=request.user)
         user.avatar = request.data["file"]

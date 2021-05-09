@@ -4,6 +4,7 @@ import { UserOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "./../../../reducers/index";
+import {url} from './../../../tools/params'
 
 export const Header_: React.FC = () => {
   const { username, avatar } = useSelector(
@@ -18,7 +19,7 @@ export const Header_: React.FC = () => {
       </Col>
       <Col>
         <Row justify={"space-between"} align={"middle"}>
-          <Avatar size={40} icon={<UserOutlined />} src={avatar} />
+          <Avatar size={40} icon={<UserOutlined />} src={`${url}${avatar}`} />
           <Link to="/settings">
             <p
               style={{
