@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-1f9xb8+lka4x5e&355$uc&u-q1&#!@pi=qs(l2zh=4i6*^+2x*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['core-it.herokuapp.com', 'localhost:8000']
+ALLOWED_HOSTS = ['core-it.herokuapp.com', 'localhost:8000', '0.0.0.0:5000']
 
 
 # Application definition
@@ -93,14 +93,13 @@ WSGI_APPLICATION = "djinnif.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "djinnif",
-        "USER": "wiperse",
-        "PASSWORD": "q1w2e3r4",
-        "HOST": "localhost",
+        "NAME": "d146bp9bbjqbu0",
+        "USER": "udfisikwdxzpfe",
+        "PASSWORD": "ace0045507bc187f3cdd66c6ff6983dbc6dea957e9dde008da511e7b5fd96b40",
+        "HOST": "ec2-34-200-94-86.compute-1.amazonaws.com",
         "PORT": "5432",
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -167,7 +166,7 @@ CORS_ORIGIN_WHITELIST = (
     "http://localhost:8000",
     "http://localhost:5000",
     "http://0.0.0.0:5000",
-    "https://core-it.herokuapp.com/"
+    "https://core-it.herokuapp.com"
 )
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"  # new
