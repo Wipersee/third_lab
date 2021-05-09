@@ -19,7 +19,7 @@ export const Header_: React.FC = () => {
       </Col>
       <Col>
         <Row justify={"space-between"} align={"middle"}>
-          <Avatar size={40} icon={<UserOutlined />} src={`${url}${avatar}`} />
+          {/* <Avatar size={40} icon={<UserOutlined />} src={`${url}${avatar}`} /> */}
           <Link to="/settings">
             <p
               style={{

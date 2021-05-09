@@ -14,31 +14,31 @@ import { UploadOutlined } from "@ant-design/icons";
 import { axiosInstance } from "./../../../tools/axiosInstance";
 import {url} from './../../../tools/params'
 
-function getCookie(name:any) {
-  let matches = document.cookie.match(new RegExp(
-    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-  ));
-  return matches ? decodeURIComponent(matches[1]) : undefined;
-}
+// function getCookie(name:any) {
+//   let matches = document.cookie.match(new RegExp(
+//     "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+//   ));
+//   return matches ? decodeURIComponent(matches[1]) : undefined;
+// }
 
-const props = {
-  name: "file",
-  action: `${url}accounts/upload_avatar/`,
-  headers: {
-    authorization: "Token " + localStorage.getItem("token"),
-    "X-CSRFToken": getCookie("csrftoken") || '',
-  },
-  onChange(info: any) {
-    if (info.file.status !== "uploading") {
-      console.log(info.file, info.fileList);
-    }
-    if (info.file.status === "done") {
-      message.success(`${info.file.name} file uploaded successfully`);
-    } else if (info.file.status === "error") {
-      message.error(`${info.file.name} file upload failed.`);
-    }
-  },
-};
+// const props = {
+//   name: "file",
+//   action: `${url}accounts/upload_avatar/`,
+//   headers: {
+//     authorization: "Token " + localStorage.getItem("token"),
+//     "X-CSRFToken": getCookie("csrftoken") || '',
+//   },
+//   onChange(info: any) {
+//     if (info.file.status !== "uploading") {
+//       console.log(info.file, info.fileList);
+//     }
+//     if (info.file.status === "done") {
+//       message.success(`${info.file.name} file uploaded successfully`);
+//     } else if (info.file.status === "error") {
+//       message.error(`${info.file.name} file upload failed.`);
+//     }
+//   },
+// };
 
 export const ProfileSettings = () => {
   const [loading, setLoading] = useState(0);
@@ -140,7 +140,7 @@ export const ProfileSettings = () => {
             style={{ height: "10rem" }}
           />
         </Form.Item>
-        <div
+        {/* <div
           style={{
             display: "flex",
             justifyContent: "flex-start",
@@ -151,7 +151,7 @@ export const ProfileSettings = () => {
           <Upload {...props}>
             <Button icon={<UploadOutlined />}>Click to Upload</Button>
           </Upload>
-        </div>
+        </div> */}
         <Form.Item>
           <Button type="primary" htmlType="submit" loading={loading > 0}>
             Submit
