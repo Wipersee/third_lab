@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     "info",
     "vacancies",
     "frontend",
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
