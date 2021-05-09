@@ -15,12 +15,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.conf.urls.static import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from . import settings
 
 urlpatterns = [
+    path("", include("frontend.urls")),
     path("admin/", admin.site.urls),
     path("api/v1/dj-rest-auth/", include("dj_rest_auth.urls")),
     path(
         "api/v1/dj-rest-auth/registration/", include("dj_rest_auth.registration.urls")
     ),
     path("vacancies/", include("vacancies.urls")),
+    path("api-auth/", include("rest_framework.urls")),
+    path("accounts/", include("accounts.urls")),
+    path("info/", include("info.urls")),
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += staticfiles_urlpatterns()
+
+handler404 = "frontend.views.view_404"

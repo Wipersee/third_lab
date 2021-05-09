@@ -7,7 +7,7 @@ class Vacancy(models.Model):
     title = models.CharField(max_length=126, unique=True)
     text = models.TextField()
     views = models.PositiveIntegerField(default=0)
-    publish_date = models.DateField(auto_now_add=True)
+    publish_date = models.DateField(auto_now_add=True, editable=True)
     recruiter = models.ForeignKey(
         "accounts.User",
         on_delete=models.CASCADE,

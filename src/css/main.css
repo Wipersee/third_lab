@@ -1,0 +1,39 @@
+.vacancy_card {
+  padding: 2rem;
+  box-shadow: 0px 0px 5px 5px rgb(0 0 0 / 8%);
+  margin: 1rem 0 1rem 0;
+  display: block;
+}
+.vacancy_card_title {
+  color: blue;
+  font-weight: 500;
+  font-size: 2rem;
+}
+.vacancy_card_reqruiter {
+  font-size: 1.2rem;
+  color: #8392a7;
+}
+.vacancy_card_views {
+  color: #8392a7;
+}
+.vacancy_card_salary {
+  color: #0b6623;
+}
+.vacancy_card_publish_date {
+  color: #152d32;
+}
+.send_request_button {
+  background-color: #01796f;
+  border-radius: 20px;
+  color: white;
+  border: none;
+}
+.send_request_button:hover,
+.send_request_button:focus,
+.send_request_button:visited {
+  background-color: #01796f;
+  color: white;
+}
+.ant-form-item textarea.ant-input {
+  height: 100%;
+}

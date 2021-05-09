@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-1f9xb8+lka4x5e&355$uc&u-q1&#!@pi=qs(l2zh=4i6*^+2x*"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -40,21 +40,23 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.sites",
     "rest_framework",
+    "corsheaders",
     "rest_framework.authtoken",
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
     "dj_rest_auth",
     "dj_rest_auth.registration",
-    "corsheaders",
     "accounts",
     "info",
     "vacancies",
+    "frontend",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",  # new
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
