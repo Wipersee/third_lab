@@ -15,7 +15,7 @@ import { axiosInstance } from "./../../../tools/axiosInstance";
 import {url} from './../../../tools/params'
 const props = {
   name: "file",
-  action: `${url}/accounts/upload_avatar/`,
+  action: `${url}accounts/upload_avatar/`,
   headers: {
     authorization: "Token " + localStorage.getItem("token"),
   },
