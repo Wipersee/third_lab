@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import mimetypes
+
 mimetypes.add_type("text/css", ".css", True)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,12 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-1f9xb8+lka4x5e&355$uc&u-q1&#!@pi=qs(l2zh=4i6*^+2x*"
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['core-it.herokuapp.com', 'localhost', '0.0.0.0:5000', '127.0.0.1']
+ALLOWED_HOSTS = ["core-it.herokuapp.com", "localhost", "0.0.0.0:5000", "127.0.0.1"]
 
 
 # Application definition
@@ -52,12 +53,12 @@ INSTALLED_APPS = [
     "info",
     "vacancies",
     "frontend",
-    'django_extensions',
+    "django_extensions",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "corsheaders.middleware.CorsMiddleware",  # new
     "django.middleware.common.CommonMiddleware",
@@ -65,7 +66,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware"
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "djinnif.urls"
@@ -95,11 +96,11 @@ WSGI_APPLICATION = "djinnif.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "d146bp9bbjqbu0",
-        "USER": "udfisikwdxzpfe",
-        "PASSWORD": "ace0045507bc187f3cdd66c6ff6983dbc6dea957e9dde008da511e7b5fd96b40",
-        "HOST": "ec2-34-200-94-86.compute-1.amazonaws.com",
-        "PORT": "5432",
+        "NAME": os.environ.get("DB_NAME"),
+        "USER": os.environ.get("DB_USER"),
+        "PASSWORD": os.environ.get("DB_PASSWORD"),
+        "HOST": os.environ.get("DB_HOST"),
+        "PORT": os.environ.get("DB_PORT"),
     }
 }
 
@@ -161,6 +162,7 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
     ],
+    "DEFAULT_RENDERER_CLASSES": ("rest_framework.renderers.JSONRenderer",),
 }
 
 CORS_ORIGIN_WHITELIST = (
@@ -168,7 +170,7 @@ CORS_ORIGIN_WHITELIST = (
     "http://localhost:8000",
     "http://localhost:5000",
     "http://0.0.0.0:5000",
-    "https://core-it.herokuapp.com"
+    "https://core-it.herokuapp.com",
 )
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"  # new
